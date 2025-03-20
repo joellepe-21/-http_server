@@ -1,0 +1,536 @@
+/* Стили для главной страницы */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Занимает всю высоту экрана */
+  text-align: center;
+  background-color: #f4f4f9;
+}
+
+.welcome-section {
+  display: flex;
+  align-items: center; /* Выравниваем текст и изображение по вертикали */
+  gap: 20px; /* Расстояние между текстом и изображением */
+}
+
+.welcome-text {
+  font-size: 3rem;
+  color: #333;
+  margin: 0; /* Убираем отступы у заголовка */
+}
+
+.home-image {
+  width: 100px; /* Маленький размер изображения */
+  height: auto;
+  border-radius: 10px;
+}
+
+.home-description {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 20px 0;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #FFD700, #32CD32); /* Градиент из жёлтого в зелёный */
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #FFD700, #228B22); /* Градиент при наведении */
+}
+
+/* Стили для страницы статей */
+.articles-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Занимает всю высоту экрана */
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+.articles-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 2px solid transparent; /* Прозрачная рамка */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-clip: padding-box; /* Чтобы градиент не выходил за рамку */
+  position: relative;
+}
+
+/* Градиентная рамка */
+.articles-container::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #FFD700, #32CD32); /* Градиент из жёлтого в зелёный */
+  border-radius: 12px; /* Учитываем толщину рамки */
+  z-index: -1;
+}
+
+.article-card {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-bottom: 1px solid #ddd; /* Разделитель между статьями */
+}
+
+.article-card:last-child {
+  border-bottom: none; /* Убираем разделитель у последней статьи */
+}
+
+.article-card h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.article-card p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.loading {
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #FFD700, #32CD32); /* Градиент для текста */
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Стили для кнопок в правом верхнем углу */
+.top-right-buttons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px; /* Расстояние между кнопками */
+}
+
+.auth-button {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #FFD700, #32CD32); /* Градиент из жёлтого в зелёный */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.auth-button:hover {
+  background: linear-gradient(135deg, #FFD700, #228B22); /* Градиент при наведении */
+}
+
+.error {
+  font-size: 1.5rem;
+  color: #ff0000;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Стили для страницы регистрации */
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+.register-container h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #FFD700, #32CD32);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #FFD700, #228B22);
+}
+
+.error {
+  color: #ff0000;
+  margin-bottom: 15px;
+}
+
+/* Стили для страницы авторизации */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+.login-container h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #FFD700, #32CD32);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #FFD700, #228B22);
+}
+
+.error {
+  color: #ff0000;
+  margin-bottom: 15px;
+}
+
+/* Стили для админ-панели */
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+.admin-container h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group textarea {
+  height: 200px; /* Высота текстового поля */
+  resize: vertical; /* Разрешаем изменение высоты */
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #FFD700, #32CD32);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #FFD700, #228B22);
+}
+
+.error {
+  color: #ff0000;
+  margin-bottom: 15px;
+}
+
+.success {
+  color: #32CD32;
+  margin-bottom: 15px;
+}
+
+/* Стили для админ-панели */
+.admin-panel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+.admin-panel-container h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #FFD700, #32CD32);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #FFD700, #228B22);
+}
+
+/* Общие стили для центрирования */
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Занимает всю высоту экрана */
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+.center-container h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group textarea {
+  height: 200px; /* Высота текстового поля */
+  resize: vertical; /* Разрешаем изменение высоты */
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #FFD700, #32CD32);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #FFD700, #228B22);
+}
+
+.error {
+  color: #ff0000;
+  margin-bottom: 15px;
+}
+
+.success {
+  color: #32CD32;
+  margin-bottom: 15px;
+}
+
+/* Стили для админ-панели */
+.admin-panel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+.admin-panel-container h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px; /* Отступ между кнопками и кнопкой "Вернуться на главную" */
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #FFD700, #32CD32);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #FFD700, #228B22);
+}
+
+.pagination-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-controls button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.pagination-controls button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.pagination-controls button.active {
+  background-color: #007bff;
+  color: white;
+
+  .pagination-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-controls button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+  }
+  
+  .pagination-controls button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  
+  .pagination-controls button.active {
+    background-color: #007bff;
+    color: white;
+  }
+}
