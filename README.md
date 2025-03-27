@@ -51,11 +51,11 @@ server/
 │   │   └── presentation/                               # Контроллеры для обработки HTTP-запросов.
 │   │       ├── article_controller.go
 │   │       └── auth_controller.go
-│   │                                       # Определение маршрутов API.
+│   │                                       
 │   │       
-│   ├── internal/  
-|   |   |── router/ 
-|   |   |    └── router.go                                  # Внутренняя логика приложения.
+│   ├── internal/                                       # Внутренняя логика приложения.
+|   |   |── router/                                     # Определение маршрутов API.
+|   |   |    └── router.go                                 
 │   │   ├── config/                                     # Настройки приложения
 │   │   │   ├── config.go
 │   │   │   └── config.json
