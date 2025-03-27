@@ -43,40 +43,40 @@ Dockerfile оптимизирован для кэширования зависи
 server/
 ├── backend/
 │   ├── cmd/
-│   │   ├── migrations/                                 # Файлы миграций базы данных.
-│   │   │   ├── 000001_create_users_table.down.sql
-│   │   │   └── 000001_create_users_table.up.sql
-│   │   └── main.go
-│   ├── infrastructure/                                 # Код, связанный с внешними системами.
-│   │   └── presentation/                               # Контроллеры для обработки HTTP-запросов.
-│   │       ├── article_controller.go
-│   │       └── auth_controller.go
-│   │                                       
-│   │       
-│   ├── internal/                                       # Внутренняя логика приложения.
-|   |   |── router/                                     # Определение маршрутов API.
-|   |   |    └── router.go                                 
-│   │   ├── config/                                     # Настройки приложения
-│   │   │   ├── config.go
-│   │   │   └── config.json
-│   │   ├── database/                                   # Логика работы с базой данных.
-│   │   │   └── db.go
-│   │   ├── domain/                                     # Бизнес-логика и модели данных.
-│   │   │   ├── models/                                 # Определения моделей
+│   │   └── main.go                                      # Точка входа приложения.
+│   ├── config/                                          # Конфигурационные файлы.
+│   │   ├── config.go                                    # Загрузка конфигурации.
+│   │   └── config.json                                  # Конфигурация по умолчанию.
+│   ├── database/                                        # Логика работы с базой данных.
+│   │   └── migrations/                                  # Файлы миграций базы данных.
+│   │       ├── 000001_create_users_table.down.sql
+│   │       └── 000001_create_users_table.up.sql
+│   ├── internal/                                        # Внутренняя логика приложения.
+│   │   ├── app/                                         # Инициализация приложения.
+│   │   │   └── app.go                                   # Настройка маршрутов и сервера.
+│   │   ├── domain/                                      # Бизнес-логика и модели данных.
+│   │   │   ├── models/                                  # Определения моделей.
 │   │   │   │   ├── article.go
 │   │   │   │   └── user.go
-│   │   │   └── repository/                             # Репозитории для взаимодействи с БД.
+│   │   │   └── repository/                              # Репозитории для взаимодействия с БД.
 │   │   │       ├── article_repository.go
 │   │   │       └── user_repository.go
-│   │   ├── middleware/                                 # Промежуточные обработчики.
-│   │   │   ├── auth_middleware.go
-│   │   │   └── maxUser_middleware.go
-│   │   └── utils/                                      # Утилиты и вспомогательные функции.
-│   │       ├── hash.go
-│   │       └── jwt.go
+│   │   ├── transport/                                   # Транспортный уровень (middleware, контроллеры).
+│   │   │   ├── controllers/                             # Контроллеры для обработки HTTP-запросов.
+│   │   │   │   ├── article_controller.go
+│   │   │   │   └── auth_controller.go
+│   │   │   └── middleware/                              # Middleware для обработки HTTP-запросов.
+│   │   │       ├── auth_middleware.go
+│   │   │       └── maxUser_middleware.go
+│   │   └── usecase/                                     # UseCase для бизнес-логики.
+│   │       ├── user_usecase.go                          # UseCase для пользователей.
+│   │       └── article_usecase.go                       # UseCase для статей.
+│   ├── pkg/                                             # Переиспользуемый код.
+│   │   ├── hash.go                                      # Утилита для хэширования.
+│   │   └── jwt.go                                       # Утилита для работы с JWT.
 │   ├── Dockerfile
-│   ├── go.mod                                          # Go модули
-│   ├── go.sum                                          # Хэши зависимостей
+│   ├── go.mod                                           # Go модули.
+│   ├── go.sum                                           # Хэши зависимостей.
 │   ├── Makefile
 │   └── server/
 ├── frontend/
