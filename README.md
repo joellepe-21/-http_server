@@ -46,14 +46,16 @@ server/
 │   │   ├── migrations/                                 # Файлы миграций базы данных.
 │   │   │   ├── 000001_create_users_table.down.sql
 │   │   │   └── 000001_create_users_table.up.sql
-│   │   └── run.go
+│   │   └── main.go
 │   ├── infrastructure/                                 # Код, связанный с внешними системами.
-│   │   ├── presentation/                               # Контроллеры для обработки HTTP-запросов.
-│   │   │   ├── article_controller.go
-│   │   │   └── auth_controller.go
-│   │   └── router/                                     # Определение маршрутов API.
-│   │       └── router.go
-│   ├── internal/                                       # Внутренняя логика приложения.
+│   │   └── presentation/                               # Контроллеры для обработки HTTP-запросов.
+│   │       ├── article_controller.go
+│   │       └── auth_controller.go
+│   │                                       # Определение маршрутов API.
+│   │       
+│   ├── internal/  
+|   |   |── router/ 
+|   |   |    └── router.go                                  # Внутренняя логика приложения.
 │   │   ├── config/                                     # Настройки приложения
 │   │   │   ├── config.go
 │   │   │   └── config.json
@@ -75,7 +77,6 @@ server/
 │   ├── Dockerfile
 │   ├── go.mod                                          # Go модули
 │   ├── go.sum                                          # Хэши зависимостей
-│   ├── main.go
 │   ├── Makefile
 │   └── server/
 ├── frontend/
