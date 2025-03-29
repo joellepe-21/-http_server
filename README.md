@@ -47,8 +47,7 @@ server/
 │   ├── config/                                          # Конфигурационные файлы.
 │   │   ├── config.go                                    # Загрузка конфигурации.
 │   │   └── config.json                                  # Конфигурация по умолчанию.
-│   ├── database/                                        # Логика работы с базой данных.
-│   │   └── migrations/                                  # Файлы миграций базы данных.
+│   │───migrations/                                      # Файлы миграций базы данных.
 │   │       ├── 000001_create_users_table.down.sql
 │   │       └── 000001_create_users_table.up.sql
 │   ├── internal/                                        # Внутренняя логика приложения.
@@ -69,11 +68,14 @@ server/
 │   │   │       ├── auth_middleware.go
 │   │   │       └── maxUser_middleware.go
 │   │   └── usecase/                                     # UseCase для бизнес-логики.
-│   │       ├── user_usecase.go                          # UseCase для пользователей.
 │   │       └── article_usecase.go                       # UseCase для статей.
 │   ├── pkg/                                             # Переиспользуемый код.
 │   │   ├── hash.go                                      # Утилита для хэширования.
 │   │   └── jwt.go                                       # Утилита для работы с JWT.
+│   ├── docs/                                            # Документация API (Swagger).
+│   │   ├── docs.go                                      # Метаданные для Swagger (генерируется автоматически).
+│   │   ├── swagger.json                                 # Спецификация OpenAPI/Swagger в формате JSON.
+│   │   └── swagger.yaml                                 # Спецификация OpenAPI/Swagger в формате YAML.
 │   ├── Dockerfile
 │   ├── go.mod                                           # Go модули.
 │   ├── go.sum                                           # Хэши зависимостей.
@@ -99,8 +101,6 @@ server/
 │   ├── package.json
 │   └── README.md
 └── docker-compose.yaml
-```
-
 ## Маршрутизация
 
 ### Публичные маршруты :
