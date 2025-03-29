@@ -14,7 +14,7 @@ function UpdateArticle() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8000/update", {
+      const response = await fetch("http://localhost:8000/api/update", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

@@ -14,7 +14,7 @@ function DeleteArticle() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8000/delete", {
+      const response = await fetch("http://localhost:8000/api/delete", {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",

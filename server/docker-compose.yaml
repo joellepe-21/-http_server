@@ -39,7 +39,7 @@ services:
       db:
         condition: service_healthy
     volumes:
-      - ./backend/cmd/migrations:/migrations
+      - ./backend/migrations:/migrations
     command: [
       "-path", "./migrations",
       "-database", "postgres://postgres:postgres@db:5432/mydatabase?sslmode=disable",

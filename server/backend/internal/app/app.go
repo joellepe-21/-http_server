@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"server/config"
-	_ "server/docs"
 	"server/internal/database"
 	"server/internal/domain/repository"
 	"server/internal/transport/controllers"

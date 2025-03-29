@@ -1,4 +1,262 @@
+definitions:
+  models.ArticlePagination:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/models.ArticleSelect'
+        type: array
+      limit:
+        type: integer
+      page:
+        type: integer
+      totalPage:
+        type: integer
+      totalRows:
+        type: integer
+    type: object
+  models.ArticleSelect:
+    properties:
+      article:
+        type: string
+      name:
+        type: string
+    type: object
+host: localhost:8000
 info:
   contact: {}
-paths: {}
+  description: API for managing articles.
+  title: Article API
+  version: "1.0"
+paths:
+  /api/add:
+    post:
+      consumes:
+      - application/json
+      description: Add a new article with the provided name and text.
+      parameters:
+      - description: Article to add
+        in: body
+        name: article
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Add a new article
+      tags:
+      - articles
+  /api/delete:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an article by its unique name.
+      parameters:
+      - description: Article name
+        in: body
+        name: name
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Delete an article by name
+      tags:
+      - articles
+  /api/update:
+    put:
+      consumes:
+      - application/json
+      description: Update an existing article with the provided details.
+      parameters:
+      - description: Updated article
+        in: body
+        name: article
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Update an article
+      tags:
+      - articles
+  /article:
+    post:
+      consumes:
+      - application/json
+      description: Retrieve a paginated list of articles.
+      parameters:
+      - description: Pagination parameters
+        in: body
+        name: pagination
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ArticlePagination'
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Get paginated articles
+      tags:
+      - articles
+  /authorization:
+    post:
+      consumes:
+      - application/json
+      description: Authenticate a user by login and password and return a JWT token.
+      parameters:
+      - description: User credentials
+        in: body
+        name: credentials
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Authorize a user
+      tags:
+      - auth
+  /register:
+    post:
+      consumes:
+      - application/json
+      description: Register a new user with the provided login and password.
+      parameters:
+      - description: User to register
+        in: body
+        name: user
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Register a new user
+      tags:
+      - auth
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
 swagger: "2.0"
